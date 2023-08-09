@@ -16,7 +16,7 @@ class WrapPage extends StatelessWidget {
           spacing: 8.0,
           runSpacing: 8.0,
           children: [
-            //ColorCardを12個
+            //ColorCardを繰り返す
             for (var i = 0; i < 12; i++) const ColorCard()
           ],
         ),
