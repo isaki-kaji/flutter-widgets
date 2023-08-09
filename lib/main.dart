@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgets_app/Routes/index.dart';
+import 'package:flutter_widgets_app/pages/Expanded.dart';
 
 import 'components/main_listTile.dart';
 import 'pages/safearea.dart';
@@ -16,12 +17,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primarySwatch: Colors.deepPurple,
         useMaterial3: true,
+        appBarTheme: const AppBarTheme(
+            backgroundColor: Color.fromARGB(255, 90, 224, 191), // AppBarの背景色を設定
+            elevation: 1),
       ),
       home: const MyHomePage(title: 'Flutter Widgets Demo'),
       routes: {
         "/safearea": (context) => const SafeAreaPage(),
+        "/expanded": (context) => const ExpandedPage(),
       },
     );
   }

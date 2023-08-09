@@ -5,11 +5,14 @@ class SafeAreaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        body: SafeArea(
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text("SafeArea"),
+        ),
+        body: const SafeArea(
             child: Padding(
-      padding: EdgeInsets.all(8.0),
-      child: Text("SafeAreaPage"),
-    )));
+          padding: EdgeInsets.all(8.0),
+          child: Text("SafeAreaPage"),
+        )));
   }
 }
