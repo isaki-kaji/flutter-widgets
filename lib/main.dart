@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgets_app/Routes/index.dart';
 import 'package:flutter_widgets_app/pages/Expanded.dart';
 import 'package:flutter_widgets_app/pages/wrap.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'components/main_listTile.dart';
 import 'demo_pages/mapdemo_page.dart';
 import 'pages/safearea.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         "/safearea": (context) => const SafeAreaPage(),
         "/expanded": (context) => const ExpandedPage(),
         "/wrap": (context) => const WrapPage(),
-        "/mapdemo": (context) => const MapDemoPage(),
+        "/mapdemo": (context) => MapDemoPage(),
       },
     );
   }
