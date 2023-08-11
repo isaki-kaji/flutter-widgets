@@ -4,6 +4,7 @@ import 'package:flutter_widgets_app/pages/Expanded.dart';
 import 'package:flutter_widgets_app/pages/wrap.dart';
 
 import 'components/main_listTile.dart';
+import 'demo_pages/mapdemo_page.dart';
 import 'pages/safearea.dart';
 
 void main() {
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         "/safearea": (context) => const SafeAreaPage(),
         "/expanded": (context) => const ExpandedPage(),
         "/wrap": (context) => const WrapPage(),
+        "/mapdemo": (context) => const MapDemoPage(),
       },
     );
   }
