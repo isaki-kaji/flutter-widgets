@@ -18,6 +18,9 @@ class MapDemoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Map Demo'),
+      ),
       body: Padding(
         padding: const EdgeInsets.only(top: 30.0),
         child: SafeArea(
@@ -62,31 +65,41 @@ class MapDemoPage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 15.0),
-                child: Consumer(
-                  builder: (context, ref, child) {
-                    return Slider(
-                      value: ref.watch(_mapDemoProvider),
-                      onChanged: (value) {
-                        ref.read(_mapDemoProvider.notifier).changeState(value);
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 280.0,
+                      child: Consumer(
+                        builder: (context, ref, child) {
+                          return Slider(
+                            value: ref.watch(_mapDemoProvider),
+                            onChanged: (value) {
+                              ref
+                                  .read(_mapDemoProvider.notifier)
+                                  .changeState(value);
+                            },
+                            min: 1.0,
+                            max: 15.0,
+                          );
+                        },
+                      ),
+                    ),
+                    Consumer(
+                      builder: (context, ref, child) {
+                        return FloatingActionButton(
+                          onPressed: () => {
+                            print(
+                              ref.watch(_mapDemoProvider),
+                            ),
+                          },
+                          child: const Icon(Icons.add),
+                        );
                       },
-                      min: 1.0,
-                      max: 15.0,
-                    );
-                  },
+                    )
+                  ],
                 ),
               ),
-              Consumer(
-                builder: (context, ref, child) {
-                  return FloatingActionButton(
-                    onPressed: () => {
-                      print(
-                        ref.watch(_mapDemoProvider),
-                      ),
-                    },
-                    child: const Icon(Icons.add),
-                  );
-                },
-              )
             ],
           ),
         ),

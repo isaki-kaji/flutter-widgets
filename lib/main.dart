@@ -22,9 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
         useMaterial3: true,
-        appBarTheme: const AppBarTheme(
-            backgroundColor: Color.fromARGB(255, 90, 224, 191), // AppBarの背景色を設定
-            elevation: 1),
+        appBarTheme: const AppBarTheme(elevation: 1),
       ),
       home: const MyHomePage(title: 'Flutter Widgets Demo'),
       routes: {
