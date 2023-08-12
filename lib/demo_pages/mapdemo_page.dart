@@ -14,8 +14,6 @@ class MapDemoPage extends StatelessWidget {
   MapDemoPage({super.key});
 
   final TransformationController _controller = TransformationController();
-  final _controllerX = ScrollController();
-  final _controllerY = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,107 +22,42 @@ class MapDemoPage extends StatelessWidget {
         title: const Text('Map Demo'),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 30.0),
+        padding: const EdgeInsets.only(top: 20.0),
         child: SafeArea(
-          child: Column(
-            children: [
-              Consumer(
-                builder: (context, ref, child) {
-                  // final scale = ref.watch(_mapDemoProvider);
-                  // _controller.value = Matrix4.identity()..scale(scale);
-                  return Stack(
-                    children: [
-                      InteractiveViewer(
-                        //斜めに動かせるかどうか
-                        // constrained: false,
-                        transformationController: _controller,
-                        //boundaryMarginで拡大した時に端っこを中心まで持ってこれる。
-                        boundaryMargin: const EdgeInsets.all(20.0),
-                        minScale: 1.0,
-                        maxScale: 15.0,
-                        child: SingleChildScrollView(
-                          controller: _controllerY,
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            controller: _controllerX,
-                            child: Column(
-                              children: List.generate(
-                                100,
-                                (rowIndex) {
-                                  return Row(
-                                    children: List.generate(100, (colIndex) {
-                                      return Padding(
-                                        padding: const EdgeInsets.all(0.5),
-                                        child: Container(
-                                          height: 5,
-                                          width: 5,
-                                          color: Colors.green,
-                                        ),
-                                      );
-                                    }),
-                                  );
-                                },
-                              ),
-                            ),
-                          ),
+          child: InteractiveViewer(
+            constrained: false, // これを追加
+            transformationController: _controller,
+            boundaryMargin: const EdgeInsets.all(20.0),
+            minScale: 1.0,
+            maxScale: 15.0,
+            child: Column(
+              children: List.generate(
+                100,
+                (rowIndex) {
+                  return Row(
+                    children: List.generate(100, (colIndex) {
+                      return Padding(
+                        padding: const EdgeInsets.all(0.5),
+                        child: Container(
+                          height: 5,
+                          width: 5,
+                          color: Colors.green,
                         ),
-                      ),
-                      GestureDetector(
-                        behavior: HitTestBehavior.opaque,
-                        child: const SizedBox(
-                          width: double.infinity,
-                          height: double.infinity,
-                        ),
-                        onPanUpdate: (DragUpdateDetails data) {
-                          _controllerX.jumpTo(
-                              _controllerX.offset + (data.delta.dx * -1));
-                          _controllerY.jumpTo(
-                              _controllerY.offset + (data.delta.dy * -1));
-                        },
-                      ),
-                    ],
+                      );
+                    }),
                   );
                 },
               ),
-              // Padding(
-              //   padding: const EdgeInsets.only(top: 15.0),
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.center,
-              //     children: [
-              //       SizedBox(
-              //         width: 280.0,
-              //         child: Consumer(
-              //           builder: (context, ref, child) {
-              //             return Slider(
-              //               value: ref.watch(_mapDemoProvider),
-              //               onChanged: (value) {
-              //                 ref
-              //                     .read(_mapDemoProvider.notifier)
-              //                     .changeState(value);
-              //               },
-              //               min: 1.0,
-              //               max: 15.0,
-              //             );
-              //           },
-              //         ),
-              //       ),
-              //       Consumer(
-              //         builder: (context, ref, child) {
-              //           return FloatingActionButton(
-              //             onPressed: () => {
-              //               print(
-              //                 ref.watch(_mapDemoProvider),
-              //               ),
-              //             },
-              //             child: const Icon(Icons.add),
-              //           );
-              //         },
-              //       )
-              //     ],
-              //   ),
-              // ),
-            ],
+            ),
           ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.deepPurple,
+        onPressed: () => (),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
         ),
       ),
     );
