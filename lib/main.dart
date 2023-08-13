@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgets_app/Routes/index.dart';
 import 'package:flutter_widgets_app/pages/Expanded.dart';
 import 'package:flutter_widgets_app/pages/animation.dart';
+import 'package:flutter_widgets_app/pages/pageview.dart';
 import 'package:flutter_widgets_app/pages/wrap.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         "/wrap": (context) => const WrapPage(),
         "/mapdemo": (context) => MapDemoPage(),
         "/animation": (context) => const AnimationPage(),
+        "/pageview": (context) => PageViewPage(),
       },
     );
   }
