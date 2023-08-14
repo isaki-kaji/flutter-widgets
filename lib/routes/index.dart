@@ -6,4 +6,5 @@ const List<Map<String, String>> routeList = [
   {"title": "Animation", "route": "/animation"},
   {"title": "pageview", "route": "/pageview"},
   {"title": "stream", "route": "/stream"},
+  {"title": "futurebuilder", "route": "/futurebuilder"}
 ];
