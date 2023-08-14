@@ -5,4 +5,5 @@ const List<Map<String, String>> routeList = [
   {"title": "MapDemo", "route": "/mapdemo"},
   {"title": "Animation", "route": "/animation"},
   {"title": "pageview", "route": "/pageview"},
+  {"title": "stream", "route": "/stream"},
 ];
