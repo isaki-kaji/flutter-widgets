@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgets_app/Routes/index.dart';
+import 'package:flutter_widgets_app/components/mywidget.dart';
+import 'package:flutter_widgets_app/demo_pages/riverpod_page.dart';
 import 'package:flutter_widgets_app/pages/Expanded.dart';
 import 'package:flutter_widgets_app/pages/animation.dart';
 import 'package:flutter_widgets_app/pages/fadetransition.dart';
@@ -40,6 +42,7 @@ class MyApp extends StatelessWidget {
         "/stream": (context) => StreamPage(),
         "/futurebuilder": (context) => FutureBuilderPage(),
         "/fadetransition": (context) => const FadeTransitionPage(),
+        "/riverpod": (context) => const RiverpodPage(),
       },
     );
   }
