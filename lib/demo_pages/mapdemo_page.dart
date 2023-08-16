@@ -21,40 +21,44 @@ class MapDemoPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Map Demo'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 20.0),
-        child: SafeArea(
-          child: SizedBox(
-            //高さを画面幅の70%に設定
-            height: MediaQuery.of(context).size.height * 0.7,
-            child: InteractiveViewer(
-              constrained: false, // これを追加
-              transformationController: _controller,
-              boundaryMargin: const EdgeInsets.all(20.0),
-              minScale: 1.0,
-              maxScale: 15.0,
-              child: Column(
-                children: List.generate(
-                  50,
-                  (rowIndex) {
-                    return Row(
-                      children: List.generate(50, (colIndex) {
-                        return Padding(
-                          padding: const EdgeInsets.all(0.5),
-                          child: Container(
-                            height: 10,
-                            width: 10,
-                            color: Colors.green,
-                          ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: SafeArea(
+              child: SizedBox(
+                //高さを画面幅の70%に設定
+                height: MediaQuery.of(context).size.height * 0.7,
+                child: InteractiveViewer(
+                  constrained: false, // これを追加
+                  transformationController: _controller,
+                  boundaryMargin: const EdgeInsets.all(20.0),
+                  minScale: 1.0,
+                  maxScale: 15.0,
+                  child: Column(
+                    children: List.generate(
+                      50,
+                      (rowIndex) {
+                        return Row(
+                          children: List.generate(50, (colIndex) {
+                            return Padding(
+                              padding: const EdgeInsets.all(0.5),
+                              child: Container(
+                                height: 10,
+                                width: 10,
+                                color: Colors.green,
+                              ),
+                            );
+                          }),
                         );
-                      }),
-                    );
-                  },
+                      },
+                    ),
+                  ),
                 ),
               ),
             ),
           ),
-        ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.deepPurple,
