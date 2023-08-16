@@ -36,12 +36,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_hooks:
   flutter_riverpod:
-  flutter_annotation:
+  riverpod_annotation: ^2.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner:
+
   riverpod_generator:
 
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -50,6 +50,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  build_runner: ^2.4.6
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
