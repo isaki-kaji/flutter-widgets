@@ -8,5 +8,6 @@ const List<Map<String, String>> routeList = [
   {"title": "Stream", "route": "/stream"},
   {"title": "FutureBuilder", "route": "/futurebuilder"},
   {"title": "FadeTransition", "route": "/fadetransition"},
-  {"title": "Riverpod", "route": "/riverpod"}
+  {"title": "Riverpod", "route": "/riverpod"},
+  {"title": "futureRiverpod", "route": "/futureRiverpod"}
 ];
