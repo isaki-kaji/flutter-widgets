@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
-class FutureBuilderPage extends StatefulWidget {
-  const FutureBuilderPage({super.key});
+class FutureBuilderPage extends StatelessWidget {
+  FutureBuilderPage({super.key});
 
-  @override
-  State<FutureBuilderPage> createState() => _FutureBuilderPageState();
-}
-
-class _FutureBuilderPageState extends State<FutureBuilderPage> {
   final Future<String> _calc = Future<String>.delayed(
     //delayedメソッドはDurationクラスの値を引数に取るということ
     const Duration(seconds: 2),
