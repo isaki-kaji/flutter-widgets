@@ -6,8 +6,8 @@ part 'future_riverpod.g.dart';
 class FutureRiverpodNotifier extends _$FutureRiverpodNotifier {
   @override
   Future<Hello> build() async {
-    final hello = Hello(0, "こんにちは");
-    const sec3 = Duration(seconds: 3);
+    final hello = Hello(1, "こんにちは");
+    const sec3 = Duration(seconds: 2);
     await Future.delayed(sec3);
     // 最初のデータ
     return hello;
@@ -15,13 +15,15 @@ class FutureRiverpodNotifier extends _$FutureRiverpodNotifier {
 
   void repeatHello() async {
     state = const AsyncValue.loading();
-    const sec3 = Duration(seconds: 3);
-    await Future.delayed(sec3);
-    if (state is AsyncData<Hello>) {
-      final currentHello = (state as AsyncData<Hello>).value;
-      final newNum = currentHello.num + 1;
+    const sec2 = Duration(seconds: 2);
+    await Future.delayed(sec2);
+    if (state is AsyncLoading<Hello>) {
+      final currentHello = state.value;
+      final newNum = currentHello!.num + 1;
       final newHello = Hello(newNum, "こんにちは"); // 新しいHelloオブジェクトを作成します
       state = AsyncValue.data(newHello); // 新しいHelloオブジェクトをstateにセットします
+    } else {
+      print("state is not AsyncData<Hello>");
     }
   }
 }

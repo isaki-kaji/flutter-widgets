@@ -11,7 +11,7 @@ class FutureRiverpod extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('FutureRiverpod'),
+          title: const Text('FutureRiverpod'),
         ),
         body: Center(
           child: Consumer(
